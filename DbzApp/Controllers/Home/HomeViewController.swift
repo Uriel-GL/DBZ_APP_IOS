@@ -13,11 +13,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loaderIndicator: UIActivityIndicatorView!
     
-    var characters: [CharacterDBZ] = [] {
-        didSet {
-            self.collectionView.reloadData()
-        }
-    }
+    var characters: [CharacterDBZ] = []
     var meta: Meta? = nil
     
     override func viewDidLoad() {
@@ -63,6 +59,8 @@ class HomeViewController: BaseViewController {
             case .success(let data):
                 self?.characters = data.items
                 self?.meta = data.meta
+                
+                self?.collectionView.reloadData()
             case .failure(let error):
                 debugPrint(error)
             }
@@ -100,7 +98,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PaginatorCollectionViewCell.indetifier, for: indexPath) as! PaginatorCollectionViewCell
-            cell.backgroundColor = .green
+            cell.delegate = self
+            guard let meta = self.meta else { return cell }
+            cell.configure(with: meta)
             return cell
         case (1, _):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as! CharacterCollectionViewCell
@@ -145,5 +145,17 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     // Márgenes de la sección
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 20, bottom: 7, right: 20)
+    }
+}
+
+extension HomeViewController: PaginatorCollectionViewCellDelegate {
+    func backPage(numPage: Int) {
+        debugPrint("Pagina BACK: \(numPage)")
+        self.getDataCharacters(numPage: numPage)
+    }
+    
+    func nextPage(numPage: Int) {
+        debugPrint("Pagina NEXT: \(numPage)")
+        self.getDataCharacters(numPage: numPage)
     }
 }

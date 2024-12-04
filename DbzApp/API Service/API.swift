@@ -32,7 +32,7 @@ enum API {
     }
     
     func excecute() {
-        debugPrint("host: \(self.url) - Metodo: \(self.method)")
+//        debugPrint("host: \(self.url) - Metodo: \(self.method)")
         AF.request(self.url, method: self.method).validate().responseData { (dataResponse) in
             switch dataResponse.result {
             case .success(_):
