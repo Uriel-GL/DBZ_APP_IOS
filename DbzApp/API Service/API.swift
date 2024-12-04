@@ -12,21 +12,23 @@ import Alamofire
 enum API {
     private static var baseUrl: String = "https://dragonball-api.com/api"
     
-    //Se setea 1 ya que sera la consulta por defecto en caso de que no se establezca el número de pagina
     case getAllCharacters(numPage: Int = 1, completion: (Result<BaseResponse<[CharacterDBZ]>, Error>) -> Void)
+    case getAllPlanets(numPage: Int = 1, completion: (Result<BaseResponse<[Planet]>, Error>) -> Void)
     
     // Esta variable nos ppermitira modificar los endpoints de una manera mas dinamica
     private var url: String {
         switch self {
         case .getAllCharacters(let numPage, _):
             return "\(API.baseUrl)/characters?page=\(numPage)&limit=10"
+        case .getAllPlanets(let numPage, _):
+            return "\(API.baseUrl)/planets?page=\(numPage)&limit=10"
         }
     }
     
     // Esta varibale mos permitira obtener el tipo de HTTPMethod dinamico dependiendo del EndPoint a utilizar
     private var method: HTTPMethod {
         switch self {
-        case .getAllCharacters:
+        case .getAllCharacters, .getAllPlanets:
             return .get
         }
     }
@@ -43,11 +45,16 @@ enum API {
                     case .getAllCharacters(_, let completion):
                         let response = try JSONDecoder().decode(BaseResponse<[CharacterDBZ]>.self, from: data)
                         completion(.success(response))
+                    case .getAllPlanets(_, let completion):
+                        let response = try JSONDecoder().decode(BaseResponse<[Planet]>.self, from: data)
+                        completion(.success(response))
                     }
                 } catch {
                     debugPrint("Ocurrio un error \(error)")
                     switch self {
                     case .getAllCharacters(_, let completion):
+                        completion(.failure(error))
+                    case .getAllPlanets(_, let completion):
                         completion(.failure(error))
                     }
                 }

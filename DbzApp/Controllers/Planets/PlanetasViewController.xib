@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlanetasViewController" customModule="DbzApp" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="eoc-Lb-Gaq" id="gg7-Jb-GDj"/>
                 <outlet property="labelTitle" destination="5Dc-vz-d1O" id="Cag-cg-f2a"/>
                 <outlet property="tableView" destination="vwM-H2-1XS" id="Dgm-Fy-01g"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,6 +34,9 @@
                     <rect key="frame" x="0.0" y="117" width="393" height="701"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="eoc-Lb-Gaq">
+                    <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -40,6 +44,8 @@
                 <constraint firstItem="5Dc-vz-d1O" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="7gH-V7-NLn"/>
                 <constraint firstItem="5Dc-vz-d1O" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Ica-EY-gaC"/>
                 <constraint firstItem="vwM-H2-1XS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Or3-wO-OxC"/>
+                <constraint firstItem="eoc-Lb-Gaq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="SNv-jV-YE6"/>
+                <constraint firstItem="eoc-Lb-Gaq" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Tt2-OE-NHz"/>
                 <constraint firstItem="vwM-H2-1XS" firstAttribute="top" secondItem="5Dc-vz-d1O" secondAttribute="bottom" id="cZm-dJ-ne2"/>
                 <constraint firstItem="vwM-H2-1XS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kob-cj-6It"/>
                 <constraint firstItem="vwM-H2-1XS" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="lyy-jU-dwN"/>

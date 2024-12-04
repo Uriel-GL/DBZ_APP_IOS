@@ -11,9 +11,18 @@ class PlanetasViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var planets: [Planet] = []
+    var meta: Meta? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Configuración del ActivityIndicator
+        self.activityIndicator.style = .large
+        self.activityIndicator.color = DBZAppColors.primary.color
+        self.activityIndicator.hidesWhenStopped = true
         
         //Configuración del texto con un como efecto delineado
         let strokeTitleAttribbutes: [NSAttributedString.Key: Any] = [
@@ -32,6 +41,32 @@ class PlanetasViewController: BaseViewController {
         self.tableView.separatorStyle = .none
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        getDataPlanets(numPage: 1)
+    }
+    
+    func getDataPlanets(numPage: Int) {
+        startLoader()
+        API.getAllPlanets(numPage: numPage) { [weak self] response in
+            self?.stopLoader()
+            switch response {
+            case .success(let data):
+                self?.planets = data.items
+                self?.meta = data.meta
+                
+                self?.tableView.reloadData()
+            case .failure(let error):
+                debugPrint("Error \(error)")
+            }
+        }.excecute()
+    }
+    
+    func startLoader() {
+        self.activityIndicator.startAnimating()
+    }
+    
+    func stopLoader() {
+        self.activityIndicator.stopAnimating()
     }
 }
 
@@ -44,10 +79,10 @@ extension PlanetasViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
+        case 0: // Paginador
             return 1
-        case 1:
-            return 4
+        case 1: // Planetas
+            return self.planets.count
         default:
             return 0
         }
@@ -58,9 +93,13 @@ extension PlanetasViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: PaginationTableViewCell.identifier, for: indexPath) as! PaginationTableViewCell
             cell.delegate = self
+            guard let meta = self.meta else { return cell }
+            cell.configure(with: meta)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: PlanetTableViewCell.identifier, for: indexPath) as! PlanetTableViewCell
+            let planet = self.planets[indexPath.row]
+            cell.configure(with: planet)
             return cell
         default:
             debugPrint("Seccion no valida")
@@ -78,11 +117,13 @@ extension PlanetasViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension PlanetasViewController: PaginationTableViewCellDelegate {
-    func backPage() { // Retroceder una pagina
-        
+    func backPage(numPage: Int) { // Retroceder una pagina
+        debugPrint("Back: \(numPage)")
+        self.getDataPlanets(numPage: numPage)
     }
     
-    func nextPage() { // Avanzar una pagina
-        
+    func nextPage(numPage: Int) { // Avanzar una pagina
+        debugPrint("Next: \(numPage)")
+        self.getDataPlanets(numPage: numPage)
     }
 }

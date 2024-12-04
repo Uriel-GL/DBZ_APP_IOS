@@ -8,8 +8,8 @@
 import UIKit
 
 protocol PaginationTableViewCellDelegate: AnyObject {
-    func backPage()
-    func nextPage()
+    func backPage(numPage: Int)
+    func nextPage(numPage: Int)
 }
 
 class PaginationTableViewCell: UITableViewCell {
@@ -20,14 +20,21 @@ class PaginationTableViewCell: UITableViewCell {
     var delegate: PaginationTableViewCellDelegate? = nil
     
     @IBOutlet weak var labelNumCharacters: UILabel!
+    @IBOutlet weak var labelNumPage: UILabel!
     @IBOutlet weak var buttonBack: UIButton!
     @IBOutlet weak var buttonNext: UIButton!
+    
+    var meta: Meta? = nil
+    var currentPage = 1
+    var currentCharacters = 0
+    var lastCount = 0
+    var isButtonBackPressed = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.labelNumCharacters.font = UIFont(name: "Oswald", size: 18)
-        self.labelNumCharacters.text = "Planetas 10 de 50"
+        self.labelNumPage.font = UIFont(name: "Oswald", size: 14)
         
         self.buttonBack.tintColor = DBZAppColors.primary.color
         self.buttonNext.tintColor = DBZAppColors.primary.color
@@ -42,15 +49,44 @@ class PaginationTableViewCell: UITableViewCell {
     }
     
     @IBAction func actionBack(_ sender: Any) {
-        self.delegate?.backPage()
+        if let meta = self.meta {
+            self.lastCount = meta.itemCount
+            self.isButtonBackPressed = true
+            self.buttonBack.isEnabled = !(self.currentPage == 1)
+            let numPage = self.currentPage - 1
+            if numPage >= 1 {
+                self.delegate?.backPage(numPage: numPage)
+            }
+        }
     }
     
     @IBAction func actionNext(_ sender: Any) {
-        self.delegate?.nextPage()
+        if let meta = self.meta {
+            self.lastCount = meta.itemCount
+            self.isButtonBackPressed = false
+            self.buttonNext.isEnabled = !(self.currentPage == meta.totalPages)
+            let numPage = self.currentPage + 1
+            if numPage <= meta.totalPages {
+                self.delegate?.nextPage(numPage: numPage)
+            }
+        }
     }
     
     // Función la cual nos ayudara a configurar el label y los botones iniciales con la data de la Api
-    func configure() {
+    func configure(with meta: Meta) {
+        self.meta = meta
+        self.currentPage = meta.currentPage
         
+        self.labelNumPage.text = "Pagina \(self.currentPage) de \(meta.totalPages)"
+        if self.isButtonBackPressed {
+            self.currentCharacters -= self.lastCount
+            self.labelNumCharacters.text = "Planetas 10 de \(meta.totalItems)"
+        } else {
+            self.currentCharacters += meta.itemCount
+            self.labelNumCharacters.text = "Planetas 10 de \(meta.totalItems)"
+        }
+        
+        self.buttonBack.isEnabled = !(currentPage == 1)
+        self.buttonNext.isEnabled = !(currentPage == meta.totalPages)
     }
 }
