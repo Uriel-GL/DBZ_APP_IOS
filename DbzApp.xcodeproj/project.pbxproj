@@ -20,8 +20,13 @@
 		6A73103D2CC1D612001B8AE3 /* DbzColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A73103C2CC1D612001B8AE3 /* DbzColors.swift */; };
 		6A7E1EF92CD2CF15007C77A3 /* DBZTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7E1EF82CD2CF15007C77A3 /* DBZTabBarViewController.xib */; };
 		6A7E1EFA2CD2CF15007C77A3 /* DBZTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7E1EF72CD2CF15007C77A3 /* DBZTabBarViewController.swift */; };
+		6A93E3882D00CEAC0018EC62 /* PaginatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E3862D00CEAC0018EC62 /* PaginatorCollectionViewCell.swift */; };
+		6A93E3892D00CEAC0018EC62 /* PaginatorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A93E3872D00CEAC0018EC62 /* PaginatorCollectionViewCell.xib */; };
 		6AA7D9492CE6596F00B6BED6 /* DetailCharacterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AA7D9482CE6596F00B6BED6 /* DetailCharacterViewController.xib */; };
 		6AA7D94A2CE6596F00B6BED6 /* DetailCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA7D9472CE6596F00B6BED6 /* DetailCharacterViewController.swift */; };
+		6ABF065F2CFF7B1300373975 /* CharacterDBZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF065E2CFF7B1300373975 /* CharacterDBZ.swift */; };
+		6ABF06612CFF7C8100373975 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF06602CFF7C8100373975 /* Planet.swift */; };
+		6ABF06632CFF7D7C00373975 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF06622CFF7D7C00373975 /* BaseResponse.swift */; };
 		6AD8AB632CC6EFA500E9A8A2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8AB622CC6EFA500E9A8A2 /* API.swift */; };
 		6AE443222CDD8E49005EB072 /* DbzStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE443212CDD8E49005EB072 /* DbzStrings.swift */; };
 		6AE443242CDD8F34005EB072 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE443232CDD8F34005EB072 /* NetworkMonitor.swift */; };
@@ -53,8 +58,13 @@
 		6A73103C2CC1D612001B8AE3 /* DbzColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbzColors.swift; sourceTree = "<group>"; };
 		6A7E1EF72CD2CF15007C77A3 /* DBZTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBZTabBarViewController.swift; sourceTree = "<group>"; };
 		6A7E1EF82CD2CF15007C77A3 /* DBZTabBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBZTabBarViewController.xib; sourceTree = "<group>"; };
+		6A93E3862D00CEAC0018EC62 /* PaginatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatorCollectionViewCell.swift; sourceTree = "<group>"; };
+		6A93E3872D00CEAC0018EC62 /* PaginatorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaginatorCollectionViewCell.xib; sourceTree = "<group>"; };
 		6AA7D9472CE6596F00B6BED6 /* DetailCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterViewController.swift; sourceTree = "<group>"; };
 		6AA7D9482CE6596F00B6BED6 /* DetailCharacterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCharacterViewController.xib; sourceTree = "<group>"; };
+		6ABF065E2CFF7B1300373975 /* CharacterDBZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDBZ.swift; sourceTree = "<group>"; };
+		6ABF06602CFF7C8100373975 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		6ABF06622CFF7D7C00373975 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		6AD8AB622CC6EFA500E9A8A2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		6AE443212CDD8E49005EB072 /* DbzStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbzStrings.swift; sourceTree = "<group>"; };
 		6AE443232CDD8F34005EB072 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -108,6 +118,8 @@
 			children = (
 				6A12C9902CC0848800CFBE77 /* CharacterCollectionViewCell.swift */,
 				6A12C9912CC0848800CFBE77 /* CharacterCollectionViewCell.xib */,
+				6A93E3862D00CEAC0018EC62 /* PaginatorCollectionViewCell.swift */,
+				6A93E3872D00CEAC0018EC62 /* PaginatorCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -211,6 +223,9 @@
 		6AEF7E6A2CC04E0900EB7BCB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6ABF065E2CFF7B1300373975 /* CharacterDBZ.swift */,
+				6ABF06602CFF7C8100373975 /* Planet.swift */,
+				6ABF06622CFF7D7C00373975 /* BaseResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -354,6 +369,7 @@
 				6AEF7E632CC04D9B00EB7BCB /* Base in Resources */,
 				6A7310392CC1D379001B8AE3 /* Oswald-W.ttf in Resources */,
 				6AEF7E782CC0615600EB7BCB /* Saiyan-Sans.ttf in Resources */,
+				6A93E3892D00CEAC0018EC62 /* PaginatorCollectionViewCell.xib in Resources */,
 				6A12C9932CC0848800CFBE77 /* CharacterCollectionViewCell.xib in Resources */,
 				6AE5D5E92CFE804B001B65ED /* PaginationTableViewCell.xib in Resources */,
 				6A7E1EF92CD2CF15007C77A3 /* DBZTabBarViewController.xib in Resources */,
@@ -413,10 +429,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A93E3882D00CEAC0018EC62 /* PaginatorCollectionViewCell.swift in Sources */,
 				6A12C9922CC0848800CFBE77 /* CharacterCollectionViewCell.swift in Sources */,
 				6A73103B2CC1D4ED001B8AE3 /* ColorExt.swift in Sources */,
 				6AEF7E572CC04D9600EB7BCB /* AppDelegate.swift in Sources */,
+				6ABF06612CFF7C8100373975 /* Planet.swift in Sources */,
 				6A12C98D2CC0812200CFBE77 /* BaseViewController.swift in Sources */,
+				6ABF06632CFF7D7C00373975 /* BaseResponse.swift in Sources */,
 				6AEF7E592CC04D9600EB7BCB /* SceneDelegate.swift in Sources */,
 				6AE5D5EA2CFE804B001B65ED /* PaginationTableViewCell.swift in Sources */,
 				6A7E1EFA2CD2CF15007C77A3 /* DBZTabBarViewController.swift in Sources */,
@@ -428,6 +447,7 @@
 				6AA7D94A2CE6596F00B6BED6 /* DetailCharacterViewController.swift in Sources */,
 				6A24D87E2CD02FE3002BEA11 /* PlanetasViewController.swift in Sources */,
 				6A49E6322CD3F1AD009E6540 /* PlanetTableViewCell.swift in Sources */,
+				6ABF065F2CFF7B1300373975 /* CharacterDBZ.swift in Sources */,
 				6AE443242CDD8F34005EB072 /* NetworkMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
