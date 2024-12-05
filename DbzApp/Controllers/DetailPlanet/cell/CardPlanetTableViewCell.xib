@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="335" id="KGk-i7-Jjw" customClass="CardPlanetTableViewCell" customModule="DbzApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="335"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="371" height="335"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olJ-yN-lQe">
+                        <rect key="frame" x="37" y="16" width="297" height="298"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="planetas" translatesAutoresizingMaskIntoConstraints="NO" id="qTU-p7-no9">
+                                <rect key="frame" x="73.666666666666686" y="16" width="150" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="H2v-OL-uNH"/>
+                                    <constraint firstAttribute="width" constant="150" id="f62-Bh-NSi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXt-ry-kCg">
+                                <rect key="frame" x="115.66666666666666" y="168" width="66" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Tierra" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbO-FS-Bbn">
+                                <rect key="frame" x="126.33333333333336" y="193.33333333333334" width="44.666666666666671" height="28.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planeta aun intacto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIU-iN-p9O">
+                                <rect key="frame" x="75.666666666666686" y="264" width="146" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estatus:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgU-35-55m">
+                                <rect key="frame" x="117.66666666666666" y="238" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="297" id="CtB-e3-5sJ"/>
+                            <constraint firstItem="qTU-p7-no9" firstAttribute="top" secondItem="olJ-yN-lQe" secondAttribute="top" constant="16" id="Mm6-El-OHA"/>
+                            <constraint firstItem="TgU-35-55m" firstAttribute="centerX" secondItem="olJ-yN-lQe" secondAttribute="centerX" id="NSx-5Q-pd4"/>
+                            <constraint firstItem="qTU-p7-no9" firstAttribute="centerX" secondItem="olJ-yN-lQe" secondAttribute="centerX" id="QP7-QJ-g3F"/>
+                            <constraint firstItem="tIU-iN-p9O" firstAttribute="top" secondItem="TgU-35-55m" secondAttribute="bottom" constant="5" id="S6A-uA-aaj"/>
+                            <constraint firstItem="tIU-iN-p9O" firstAttribute="centerX" secondItem="olJ-yN-lQe" secondAttribute="centerX" id="TLB-Xg-KeN"/>
+                            <constraint firstItem="VbO-FS-Bbn" firstAttribute="centerX" secondItem="olJ-yN-lQe" secondAttribute="centerX" id="UVA-X9-Ffn"/>
+                            <constraint firstAttribute="bottom" secondItem="tIU-iN-p9O" secondAttribute="bottom" constant="13.67" id="YQV-Xv-5i4"/>
+                            <constraint firstItem="zXt-ry-kCg" firstAttribute="centerX" secondItem="olJ-yN-lQe" secondAttribute="centerX" id="azi-Ym-T3y"/>
+                            <constraint firstAttribute="height" constant="298" id="dZw-7z-pFZ"/>
+                            <constraint firstItem="VbO-FS-Bbn" firstAttribute="top" secondItem="zXt-ry-kCg" secondAttribute="bottom" constant="5" id="ddj-Y4-CnJ"/>
+                            <constraint firstItem="zXt-ry-kCg" firstAttribute="top" secondItem="qTU-p7-no9" secondAttribute="bottom" constant="10" id="j4j-5F-LyM"/>
+                            <constraint firstItem="TgU-35-55m" firstAttribute="top" secondItem="VbO-FS-Bbn" secondAttribute="bottom" constant="16.329999999999998" id="m2M-DC-xRc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="olJ-yN-lQe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="0Cy-eY-plb"/>
+                    <constraint firstAttribute="bottom" secondItem="olJ-yN-lQe" secondAttribute="bottom" constant="21" id="B7e-o6-bQE"/>
+                    <constraint firstItem="olJ-yN-lQe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="37" id="OQj-ik-W64"/>
+                    <constraint firstAttribute="trailing" secondItem="olJ-yN-lQe" secondAttribute="trailing" constant="37" id="bmL-Rs-E20"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imagePlanet" destination="qTU-p7-no9" id="ODA-9t-BCP"/>
+                <outlet property="label1" destination="zXt-ry-kCg" id="ie5-5o-zdK"/>
+                <outlet property="label2" destination="TgU-35-55m" id="RmC-M8-OZa"/>
+                <outlet property="labelEstatusPlanet" destination="tIU-iN-p9O" id="W4P-ti-mAL"/>
+                <outlet property="labelNamePlanet" destination="VbO-FS-Bbn" id="xhI-Tt-mOr"/>
+                <outlet property="viewContainer" destination="olJ-yN-lQe" id="8AZ-dd-KKO"/>
+            </connections>
+            <point key="canvasLocation" x="167.17557251908397" y="-20.070422535211268"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="planetas" width="815" height="766"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

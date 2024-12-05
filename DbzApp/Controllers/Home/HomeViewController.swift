@@ -110,6 +110,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         default:
             return UICollectionViewCell()
         }
+        
+        
     }
 }
 

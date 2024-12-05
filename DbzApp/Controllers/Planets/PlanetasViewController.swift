@@ -92,6 +92,7 @@ extension PlanetasViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: PaginationTableViewCell.identifier, for: indexPath) as! PaginationTableViewCell
+            cell.selectionStyle = .none
             cell.delegate = self
             guard let meta = self.meta else { return cell }
             cell.configure(with: meta)
@@ -104,6 +105,12 @@ extension PlanetasViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             debugPrint("Seccion no valida")
             return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            self.navigationController?.pushViewController(DetailPlanetViewController(), animated: true)
         }
     }
     

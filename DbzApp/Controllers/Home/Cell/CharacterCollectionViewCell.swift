@@ -51,5 +51,13 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         }
         task.resume()
     }
-
+    
+    func setUpShadow() {
+        self.viewContainer.backgroundColor = .systemBackground
+        self.viewContainer.layer.shadowOpacity = 0.3
+        self.viewContainer.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
+        self.viewContainer.layer.borderColor = UIColor.gray.cgColor
+        self.viewContainer.layer.borderWidth = 1.0
+        self.viewContainer.layer.masksToBounds = true
+    }
 }

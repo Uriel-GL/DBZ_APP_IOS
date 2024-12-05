@@ -80,10 +80,10 @@ class PaginationTableViewCell: UITableViewCell {
         self.labelNumPage.text = "Pagina \(self.currentPage) de \(meta.totalPages)"
         if self.isButtonBackPressed {
             self.currentCharacters -= self.lastCount
-            self.labelNumCharacters.text = "Planetas 10 de \(meta.totalItems)"
+            self.labelNumCharacters.text = "Planetas \(self.currentCharacters) de \(meta.totalItems)"
         } else {
             self.currentCharacters += meta.itemCount
-            self.labelNumCharacters.text = "Planetas 10 de \(meta.totalItems)"
+            self.labelNumCharacters.text = "Planetas \(self.currentCharacters) de \(meta.totalItems)"
         }
         
         self.buttonBack.isEnabled = !(currentPage == 1)
