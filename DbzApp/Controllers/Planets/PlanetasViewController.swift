@@ -110,7 +110,8 @@ extension PlanetasViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            self.navigationController?.pushViewController(DetailPlanetViewController(), animated: true)
+            let planet = self.planets[indexPath.row]
+            self.navigationController?.pushViewController(DetailPlanetViewController(planet: planet), animated: true)
         }
     }
     

@@ -48,4 +48,26 @@ class CardPlanetTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func configure(image: String, statusPlanet: Bool, namePlanet: String) {
+        self.labelNamePlanet.text = namePlanet
+        self.labelEstatusPlanet.text = statusPlanet ? "Planeta destruido" : "Planeta aun intacto"
+        
+        guard let url = URL(string: image) else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                debugPrint("Ocurrio un error al obtener la data")
+            }
+            
+            guard let data = data, let imageData = UIImage(data: data) else {
+                debugPrint("Error al obtener la imagen")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.imagePlanet.image = imageData
+            }
+        }
+        task.resume()
+    }
 }

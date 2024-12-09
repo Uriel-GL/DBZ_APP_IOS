@@ -11,8 +11,20 @@ class DetailPlanetViewController: UIViewController {
 
     @IBOutlet weak var tableViewDetail: UITableView!
     
+    var planet: Planet
+    
+    init(planet: Planet) {
+        self.planet = planet
+        super.init(nibName: "DetailPlanetViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = self.planet.name
         
         self.tableViewDetail.dataSource = self
         self.tableViewDetail.delegate = self
@@ -49,12 +61,15 @@ extension DetailPlanetViewController: UITableViewDelegate, UITableViewDataSource
         switch indexPath.section {
         case 0:
             let cardCell = tableView.dequeueReusableCell(withIdentifier: CardPlanetTableViewCell.identifier, for: indexPath) as! CardPlanetTableViewCell
+            cardCell.configure(image: self.planet.image, statusPlanet: self.planet.isDestroyed, namePlanet: self.planet.name)
             return cardCell
         case 1:
             let infoCell = tableView.dequeueReusableCell(withIdentifier: InfoPlanetTableViewCell.identifier, for: indexPath) as! InfoPlanetTableViewCell
+            infoCell.labelDescription.text = self.planet.description
             return infoCell
         case 2:
             let characterCell = tableView.dequeueReusableCell(withIdentifier: CharacterPlanetTableViewCell.identifier, for: indexPath) as! CharacterPlanetTableViewCell
+            characterCell.configure(numCharacters: self.planet.characters?.count ?? 0, characters: self.planet.characters ?? [])
             return characterCell
         default:
             return UITableViewCell()

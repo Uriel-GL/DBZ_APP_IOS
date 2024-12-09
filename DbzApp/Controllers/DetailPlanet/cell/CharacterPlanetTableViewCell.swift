@@ -17,6 +17,8 @@ class CharacterPlanetTableViewCell: UITableViewCell {
     @IBOutlet weak var labelNum: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var characters: [CharacterDBZ] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
@@ -35,6 +37,10 @@ class CharacterPlanetTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func configure(numCharacters: Int, characters: [CharacterDBZ]) {
+        self.labelNum.text = "\(numCharacters)"
     }
 }
 

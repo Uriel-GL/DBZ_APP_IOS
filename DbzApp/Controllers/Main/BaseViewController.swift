@@ -12,7 +12,13 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Boton back personalizado
+        let backButton = UIBarButtonItem()
+        backButton.title = "Atras"
+        backButton.tintColor = DBZAppColors.primary.color
+        self.navigationItem.backBarButtonItem = backButton
+        
         // Configuracion del navigation NavBar
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(openSettings))
         settingsButton.tintColor = UIColor.black
