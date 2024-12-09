@@ -110,8 +110,17 @@ extension PlanetasViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            let planet = self.planets[indexPath.row]
-            self.navigationController?.pushViewController(DetailPlanetViewController(planet: planet), animated: true)
+            let planetId = self.planets[indexPath.row].id
+            self.activityIndicator.startAnimating()
+            API.getPlanet(id: planetId) { response in
+                self.activityIndicator.stopAnimating()
+                switch response {
+                case .success(let planet):
+                    self.navigationController?.pushViewController(DetailPlanetViewController(planet: planet), animated: true)
+                case .failure(let error):
+                    debugPrint("Error al cargar los datos \(error)")
+                }
+            }.excecute()
         }
     }
     

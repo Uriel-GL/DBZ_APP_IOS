@@ -41,17 +41,20 @@ class CharacterPlanetTableViewCell: UITableViewCell {
     
     func configure(numCharacters: Int, characters: [CharacterDBZ]) {
         self.labelNum.text = "\(numCharacters)"
+        self.characters = characters
+        self.collectionView.reloadData()
     }
 }
 
 extension CharacterPlanetTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return self.characters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as! CharacterCollectionViewCell
         cell.setUpShadow()
+        cell.configure(with: self.characters[indexPath.row])
         return cell
     }
 }

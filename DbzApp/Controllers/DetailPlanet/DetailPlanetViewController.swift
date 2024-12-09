@@ -11,7 +11,11 @@ class DetailPlanetViewController: UIViewController {
 
     @IBOutlet weak var tableViewDetail: UITableView!
     
-    var planet: Planet
+    var planet: Planet? = nil {
+        didSet {
+            self.tableViewDetail.reloadData()
+        }
+    }
     
     init(planet: Planet) {
         self.planet = planet
@@ -24,7 +28,7 @@ class DetailPlanetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = self.planet.name
+        self.title = self.planet?.name
         
         self.tableViewDetail.dataSource = self
         self.tableViewDetail.delegate = self
@@ -61,15 +65,15 @@ extension DetailPlanetViewController: UITableViewDelegate, UITableViewDataSource
         switch indexPath.section {
         case 0:
             let cardCell = tableView.dequeueReusableCell(withIdentifier: CardPlanetTableViewCell.identifier, for: indexPath) as! CardPlanetTableViewCell
-            cardCell.configure(image: self.planet.image, statusPlanet: self.planet.isDestroyed, namePlanet: self.planet.name)
+            cardCell.configure(image: self.planet?.image ?? "", statusPlanet: self.planet?.isDestroyed ?? false, namePlanet: self.planet?.name ?? "Desconocido")
             return cardCell
         case 1:
             let infoCell = tableView.dequeueReusableCell(withIdentifier: InfoPlanetTableViewCell.identifier, for: indexPath) as! InfoPlanetTableViewCell
-            infoCell.labelDescription.text = self.planet.description
+            infoCell.labelDescription.text = self.planet?.description
             return infoCell
         case 2:
             let characterCell = tableView.dequeueReusableCell(withIdentifier: CharacterPlanetTableViewCell.identifier, for: indexPath) as! CharacterPlanetTableViewCell
-            characterCell.configure(numCharacters: self.planet.characters?.count ?? 0, characters: self.planet.characters ?? [])
+            characterCell.configure(numCharacters: self.planet?.characters?.count ?? 0, characters: self.planet?.characters ?? [])
             return characterCell
         default:
             return UITableViewCell()
@@ -80,7 +84,7 @@ extension DetailPlanetViewController: UITableViewDelegate, UITableViewDataSource
         if indexPath.section == 0 {
             return 380
         } else if indexPath.section == 2 {
-            let itemCount = 9 //Número de personajes a mostrar
+            let itemCount = self.planet?.characters?.count ?? 0 //Número de personajes a mostrar
             let cellHeight: CGFloat = 210 // Tamaño de la celda del collectionView
             let verticalSpacing: CGFloat = 10 // Espacio vertical del CollectionView
             let sectionInset: CGFloat = 20 // Espacio entre celdas

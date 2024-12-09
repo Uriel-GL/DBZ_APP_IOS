@@ -10,6 +10,14 @@ import UIKit
 /// Controlador en el cual se configura un NavBar base para los demas controladores en la App
 class BaseViewController: UIViewController {
 
+    var loaderView: UIActivityIndicatorView {
+        let activity = UIActivityIndicatorView()
+        activity.translatesAutoresizingMaskIntoConstraints = false
+        activity.color = DBZAppColors.primary.color
+        activity.style = .large
+        return activity
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +46,13 @@ class BaseViewController: UIViewController {
         self.navigationItem.titleView = titleView
         self.navigationItem.leftBarButtonItem = settingsButton
         self.navigationItem.rightBarButtonItem = notiButton
+        
+        //Configuración de ActivityIndicator
+//        self.view.addSubview(self.loaderView)
+//        NSLayoutConstraint.activate([
+//            self.loaderView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+//            self.loaderView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+//        ])
     }
     
     //MARK: - Funciones de los botones del NavBar
@@ -48,5 +63,17 @@ class BaseViewController: UIViewController {
     @objc func openNotifications() {
         //Funcion a ejecutar
     }
-
+    
+    /// Variable la cual nos ayudara a controlar el funcionamiento del ActivityIndicate
+//    var isLoaderActive: Bool = false {
+//        didSet {
+//            if self.isLoaderActive {
+//                self.loaderView.startAnimating()
+//                self.loaderView.isHidden = false
+//            } else {
+//                self.loaderView.stopAnimating()
+//                self.loaderView.isHidden = true
+//            }
+//        }
+//    }
 }
