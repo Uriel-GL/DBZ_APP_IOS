@@ -30,7 +30,7 @@
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planetas" translatesAutoresizingMaskIntoConstraints="NO" id="Ona-dr-1sA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planetas" translatesAutoresizingMaskIntoConstraints="NO" id="Ona-dr-1sA">
                                 <rect key="frame" x="8" y="39" width="124" height="116"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="116" id="K9b-Au-7N1"/>

@@ -36,7 +36,10 @@ class DetailCharacterViewController: UIViewController {
         self.tableDetailCharacter.register(CardInfoTableViewCell.nib, forCellReuseIdentifier: CardInfoTableViewCell.identifier)
         self.tableDetailCharacter.register(PowerInfoTableViewCell.nib, forCellReuseIdentifier: PowerInfoTableViewCell.identifier)
         self.tableDetailCharacter.register(InfoPlanetTableViewCell.nib, forCellReuseIdentifier: InfoPlanetTableViewCell.identifier)
+        self.tableDetailCharacter.register(TitleTableViewCell.nib, forCellReuseIdentifier: TitleTableViewCell.identifier)
+        self.tableDetailCharacter.register(PlanetTableViewCell.nib, forCellReuseIdentifier: PlanetTableViewCell.identifier)
         self.tableDetailCharacter.register(CharacterPlanetTableViewCell.nib, forCellReuseIdentifier: CharacterPlanetTableViewCell.identifier)
+        self.tableDetailCharacter.register(NoTransformationsTableViewCell.nib, forCellReuseIdentifier: NoTransformationsTableViewCell.identifier)
         
         self.tableDetailCharacter.separatorStyle = .none
     }
@@ -44,7 +47,7 @@ class DetailCharacterViewController: UIViewController {
 
 extension DetailCharacterViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +59,8 @@ extension DetailCharacterViewController: UITableViewDelegate, UITableViewDataSou
         case 2:
             return 1
         case 3:
+            return 2
+        case 4:
             return 1
         default:
             return 0
@@ -87,14 +92,34 @@ extension DetailCharacterViewController: UITableViewDelegate, UITableViewDataSou
             cellDesc.stackCards.isHidden = false
             return cellDesc
         case 3:
-            let cellTransformations = tableView.dequeueReusableCell(withIdentifier: CharacterPlanetTableViewCell.identifier, for: indexPath) as! CharacterPlanetTableViewCell
-            cellTransformations.labelTitle.text = "Transformaciones del personaje"
-            cellTransformations.labelNum.isHidden = true
-            cellTransformations.configure(
-                item: self.character?.transformations ?? [],
-                isDetailCharacter: true
-            )
-            return cellTransformations
+            switch indexPath.row {
+            case 0:
+                let titleCell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as! TitleTableViewCell
+                return titleCell
+            case 1:
+                let cellPlanet = tableView.dequeueReusableCell(withIdentifier: PlanetTableViewCell.identifier, for: indexPath) as! PlanetTableViewCell
+                guard let planet = self.character?.originPlanet else { return cellPlanet }
+                cellPlanet.configure(with: planet)
+                return cellPlanet
+            default:
+                return UITableViewCell()
+            }
+        case 4:
+            if self.character?.transformations?.count == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: NoTransformationsTableViewCell.identifier, for: indexPath) as! NoTransformationsTableViewCell
+                cell.label.text = "Actualmente \(self.character?.name ?? "-") no tiene transformaciones registradas."
+                return cell
+            } else {
+                let cellTransformations = tableView.dequeueReusableCell(withIdentifier: CharacterPlanetTableViewCell.identifier, for: indexPath) as! CharacterPlanetTableViewCell
+                cellTransformations.labelTitle.text = "Transformaciones del personaje"
+                cellTransformations.labelNum.isHidden = true
+                cellTransformations.configure(
+                    item: self.character?.transformations ?? [],
+                    isDetailCharacter: true
+                )
+                return cellTransformations
+            }
+            
         default:
             return UITableViewCell()
         }
@@ -104,11 +129,15 @@ extension DetailCharacterViewController: UITableViewDelegate, UITableViewDataSou
         switch indexPath.section {
         case 0:
             return UITableView.automaticDimension
-        case 3:
+        case 4:
             let itemCount = self.character?.transformations?.count ?? 0 //Número de personajes a mostrar
             let cellHeight: CGFloat = 210 // Tamaño de la celda del collectionView
             let verticalSpacing: CGFloat = 10 // Espacio vertical del CollectionView
             let sectionInset: CGFloat = 20 // Espacio entre celdas
+            
+            if itemCount == 0 { //Tamaño fijo de la celda del mensaje
+                return 160
+            }
             
             let newValue = calculateCollectionViewHeight(forItems: itemCount, cellHeight: cellHeight, verticalSpacing: verticalSpacing, sectionInset: sectionInset)
             

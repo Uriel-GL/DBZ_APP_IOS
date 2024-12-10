@@ -21,6 +21,10 @@
 		6A49E6322CD3F1AD009E6540 /* PlanetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A49E62F2CD3F1AD009E6540 /* PlanetTableViewCell.swift */; };
 		6A662E0D2D08A73B00EADE62 /* PowerInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A662E0B2D08A73B00EADE62 /* PowerInfoTableViewCell.swift */; };
 		6A662E0E2D08A73B00EADE62 /* PowerInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A662E0C2D08A73B00EADE62 /* PowerInfoTableViewCell.xib */; };
+		6A662E112D08CEF200EADE62 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A662E0F2D08CEF200EADE62 /* TitleTableViewCell.swift */; };
+		6A662E122D08CEF200EADE62 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A662E102D08CEF200EADE62 /* TitleTableViewCell.xib */; };
+		6A662E152D08D43D00EADE62 /* NoTransformationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A662E132D08D43D00EADE62 /* NoTransformationsTableViewCell.swift */; };
+		6A662E162D08D43D00EADE62 /* NoTransformationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A662E142D08D43D00EADE62 /* NoTransformationsTableViewCell.xib */; };
 		6A7310392CC1D379001B8AE3 /* Oswald-W.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A7310382CC1D379001B8AE3 /* Oswald-W.ttf */; };
 		6A73103B2CC1D4ED001B8AE3 /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A73103A2CC1D4ED001B8AE3 /* ColorExt.swift */; };
 		6A73103D2CC1D612001B8AE3 /* DbzColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A73103C2CC1D612001B8AE3 /* DbzColors.swift */; };
@@ -71,6 +75,10 @@
 		6A49E6302CD3F1AD009E6540 /* PlanetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTableViewCell.xib; sourceTree = "<group>"; };
 		6A662E0B2D08A73B00EADE62 /* PowerInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerInfoTableViewCell.swift; sourceTree = "<group>"; };
 		6A662E0C2D08A73B00EADE62 /* PowerInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PowerInfoTableViewCell.xib; sourceTree = "<group>"; };
+		6A662E0F2D08CEF200EADE62 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		6A662E102D08CEF200EADE62 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
+		6A662E132D08D43D00EADE62 /* NoTransformationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTransformationsTableViewCell.swift; sourceTree = "<group>"; };
+		6A662E142D08D43D00EADE62 /* NoTransformationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoTransformationsTableViewCell.xib; sourceTree = "<group>"; };
 		6A7310382CC1D379001B8AE3 /* Oswald-W.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-W.ttf"; sourceTree = "<group>"; };
 		6A73103A2CC1D4ED001B8AE3 /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
 		6A73103C2CC1D612001B8AE3 /* DbzColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbzColors.swift; sourceTree = "<group>"; };
@@ -219,6 +227,10 @@
 				6A05DA7A2D07BDBC0030CB0A /* CardInfoTableViewCell.xib */,
 				6A662E0B2D08A73B00EADE62 /* PowerInfoTableViewCell.swift */,
 				6A662E0C2D08A73B00EADE62 /* PowerInfoTableViewCell.xib */,
+				6A662E0F2D08CEF200EADE62 /* TitleTableViewCell.swift */,
+				6A662E102D08CEF200EADE62 /* TitleTableViewCell.xib */,
+				6A662E132D08D43D00EADE62 /* NoTransformationsTableViewCell.swift */,
+				6A662E142D08D43D00EADE62 /* NoTransformationsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -412,7 +424,9 @@
 				6A12C9932CC0848800CFBE77 /* CharacterCollectionViewCell.xib in Resources */,
 				6AE5D5E92CFE804B001B65ED /* PaginationTableViewCell.xib in Resources */,
 				6A7E1EF92CD2CF15007C77A3 /* DBZTabBarViewController.xib in Resources */,
+				6A662E122D08CEF200EADE62 /* TitleTableViewCell.xib in Resources */,
 				6AEF7E742CC04FBB00EB7BCB /* HomeViewController.xib in Resources */,
+				6A662E162D08D43D00EADE62 /* NoTransformationsTableViewCell.xib in Resources */,
 				6A8F7C152D02272100B0A9EB /* CharacterPlanetTableViewCell.xib in Resources */,
 				6A49E6312CD3F1AD009E6540 /* PlanetTableViewCell.xib in Resources */,
 				6A05DA7B2D07BDBC0030CB0A /* CardInfoTableViewCell.xib in Resources */,
@@ -478,6 +492,7 @@
 				6A05DA7C2D07BDBC0030CB0A /* CardInfoTableViewCell.swift in Sources */,
 				6ABF06612CFF7C8100373975 /* Planet.swift in Sources */,
 				6A05DA782D07BD050030CB0A /* DetailCharacterViewController.swift in Sources */,
+				6A662E112D08CEF200EADE62 /* TitleTableViewCell.swift in Sources */,
 				6A12C98D2CC0812200CFBE77 /* BaseViewController.swift in Sources */,
 				6ABF06632CFF7D7C00373975 /* BaseResponse.swift in Sources */,
 				6AEF7E592CC04D9600EB7BCB /* SceneDelegate.swift in Sources */,
@@ -487,6 +502,7 @@
 				6AE443222CDD8E49005EB072 /* DbzStrings.swift in Sources */,
 				6A8F7C122D021B9F00B0A9EB /* InfoPlanetTableViewCell.swift in Sources */,
 				6A24D8812CD031DD002BEA11 /* MainTabBarViewController.swift in Sources */,
+				6A662E152D08D43D00EADE62 /* NoTransformationsTableViewCell.swift in Sources */,
 				6AEF7E732CC04FBB00EB7BCB /* HomeViewController.swift in Sources */,
 				6AD8AB632CC6EFA500E9A8A2 /* API.swift in Sources */,
 				6A8F7C0E2D0212E300B0A9EB /* CardPlanetTableViewCell.swift in Sources */,
