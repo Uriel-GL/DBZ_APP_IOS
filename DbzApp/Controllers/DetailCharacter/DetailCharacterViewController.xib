@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailCharacterViewController" customModule="DbzApp" customModuleProvider="target">
             <connections>
+                <outlet property="tableDetailCharacter" destination="ryY-Bb-um5" id="set-3G-Frf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,18 +19,18 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8RQ-ha-H4z">
-                    <rect key="frame" x="16" y="67" width="361" height="751"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ryY-Bb-um5">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="8RQ-ha-H4z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="KcE-x6-VfD"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8RQ-ha-H4z" secondAttribute="trailing" constant="16" id="cjy-kf-gLh"/>
-                <constraint firstItem="8RQ-ha-H4z" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="g5E-yV-LG0"/>
-                <constraint firstItem="8RQ-ha-H4z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="x9P-Hd-7to"/>
+                <constraint firstItem="ryY-Bb-um5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6Im-Pe-Z6k"/>
+                <constraint firstItem="ryY-Bb-um5" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="YSx-GT-3XD"/>
+                <constraint firstItem="ryY-Bb-um5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="cvP-ce-9z1"/>
+                <constraint firstItem="ryY-Bb-um5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rNk-vD-vru"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

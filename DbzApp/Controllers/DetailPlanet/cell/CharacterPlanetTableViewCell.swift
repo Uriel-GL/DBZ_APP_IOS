@@ -18,6 +18,8 @@ class CharacterPlanetTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var characters: [CharacterDBZ] = []
+    var transformations: [Transformation] = []
+    var isDetailCharacter: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,22 +41,44 @@ class CharacterPlanetTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(numCharacters: Int, characters: [CharacterDBZ]) {
-        self.labelNum.text = "\(numCharacters)"
-        self.characters = characters
-        self.collectionView.reloadData()
+    /// Configuración del contenido con personajes oh trasnformaciones
+    func configure<T>(numCharacters: Int = 0, item: [T]?, isDetailCharacter: Bool = false) {
+        if let characters = item as? [CharacterDBZ] {
+            self.labelNum.text = "\(numCharacters)"
+            self.labelNum.isHidden = false
+            self.characters = characters
+            self.isDetailCharacter = isDetailCharacter
+            self.collectionView.reloadData()
+        }
+        
+        if let trasnformations = item as? [Transformation] {
+            self.transformations = trasnformations
+            self.labelNum.isHidden = true
+            self.isDetailCharacter = isDetailCharacter
+            self.collectionView.reloadData()
+        }
     }
 }
 
 extension CharacterPlanetTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.characters.count
+        if isDetailCharacter {
+            return self.transformations.count
+        } else {
+            return self.characters.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as! CharacterCollectionViewCell
         cell.setUpShadow()
-        cell.configure(with: self.characters[indexPath.row])
+        
+        if isDetailCharacter {
+            cell.configure(item: self.transformations[indexPath.row])
+        } else {
+            cell.configure(item: self.characters[indexPath.row])
+        }
+        
         return cell
     }
 }

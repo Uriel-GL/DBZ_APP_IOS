@@ -4,47 +4,130 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="132" id="KGk-i7-Jjw" customClass="InfoPlanetTableViewCell" customModule="DbzApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="463" height="132"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="209" id="KGk-i7-Jjw" customClass="InfoPlanetTableViewCell" customModule="DbzApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="463" height="230"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="463" height="132"/>
+                <rect key="frame" x="0.0" y="0.0" width="463" height="230"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Información del planeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwr-5N-bcv">
-                        <rect key="frame" x="16" y="8" width="431" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Planeta natal de los Namekianos. Escenario de importantes batallas y la obtención de las Dragon Balls de Namek." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2YT-rA-PiJ">
-                        <rect key="frame" x="16" y="45" width="431" height="69"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="eBs-Ug-7Dp">
+                        <rect key="frame" x="16" y="13" width="431" height="208"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Información del planeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwr-5N-bcv">
+                                <rect key="frame" x="0.0" y="0.0" width="431" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="431" id="fFb-0Y-1Da"/>
+                                    <constraint firstAttribute="height" constant="21" id="rrM-wl-hff"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Planeta natal de los Namekianos. Escenario de importantes batallas y la obtención de las Dragon Balls de Namek." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2YT-rA-PiJ">
+                                <rect key="frame" x="0.0" y="39" width="431" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="431" id="TDj-8U-sIO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="70j-1O-2Bh">
+                                <rect key="frame" x="28" y="133" width="375" height="75"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgz-nn-emj">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="75"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genero" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxp-3X-nRq">
+                                                <rect key="frame" x="0.0" y="6" width="180" height="19.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4F-pD-Nin">
+                                                <rect key="frame" x="0.0" y="46.666666666666657" width="180" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="separatorColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="Dmn-Jg-MyY"/>
+                                            <constraint firstAttribute="trailing" secondItem="o4F-pD-Nin" secondAttribute="trailing" id="Ppt-GG-3Qd"/>
+                                            <constraint firstItem="Qxp-3X-nRq" firstAttribute="top" secondItem="bgz-nn-emj" secondAttribute="top" constant="6" id="WMQ-df-IG5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qxp-3X-nRq" secondAttribute="trailing" id="goA-NC-fVv"/>
+                                            <constraint firstAttribute="bottom" secondItem="o4F-pD-Nin" secondAttribute="bottom" constant="8" id="lhi-nb-5l2"/>
+                                            <constraint firstItem="Qxp-3X-nRq" firstAttribute="leading" secondItem="bgz-nn-emj" secondAttribute="leading" id="o3R-jX-h2p"/>
+                                            <constraint firstItem="o4F-pD-Nin" firstAttribute="leading" secondItem="bgz-nn-emj" secondAttribute="leading" id="rwb-Lj-a4v"/>
+                                            <constraint firstAttribute="width" constant="180" id="zCT-e4-SZX"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvo-Xe-tvZ">
+                                        <rect key="frame" x="195" y="0.0" width="180" height="75"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Afiliación" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jt-Kv-sVp">
+                                                <rect key="frame" x="0.0" y="6" width="180" height="19.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlU-Tc-PzO">
+                                                <rect key="frame" x="0.0" y="46.666666666666657" width="180" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="separatorColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="9jt-Kv-sVp" secondAttribute="trailing" id="3GU-s9-IWv"/>
+                                            <constraint firstAttribute="width" constant="180" id="3pI-Or-T7W"/>
+                                            <constraint firstItem="9jt-Kv-sVp" firstAttribute="leading" secondItem="Uvo-Xe-tvZ" secondAttribute="leading" id="6nv-Ab-YMN"/>
+                                            <constraint firstAttribute="bottom" secondItem="DlU-Tc-PzO" secondAttribute="bottom" constant="8" id="UHG-eL-CEv"/>
+                                            <constraint firstAttribute="trailing" secondItem="DlU-Tc-PzO" secondAttribute="trailing" id="ZdP-oI-nj7"/>
+                                            <constraint firstAttribute="height" constant="75" id="dfE-E7-rtX"/>
+                                            <constraint firstItem="9jt-Kv-sVp" firstAttribute="top" secondItem="Uvo-Xe-tvZ" secondAttribute="top" constant="6" id="h3H-Xc-VEn"/>
+                                            <constraint firstItem="DlU-Tc-PzO" firstAttribute="leading" secondItem="Uvo-Xe-tvZ" secondAttribute="leading" id="wVC-m2-uBg"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Hwr-5N-bcv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="B0g-V1-eZ8"/>
-                    <constraint firstAttribute="trailing" secondItem="2YT-rA-PiJ" secondAttribute="trailing" constant="16" id="BVB-Et-Plf"/>
-                    <constraint firstItem="Hwr-5N-bcv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="H7E-Zb-ol7"/>
-                    <constraint firstAttribute="trailing" secondItem="Hwr-5N-bcv" secondAttribute="trailing" constant="16" id="Sse-Hc-zet"/>
-                    <constraint firstItem="2YT-rA-PiJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="gTF-Ke-dMx"/>
-                    <constraint firstItem="2YT-rA-PiJ" firstAttribute="top" secondItem="Hwr-5N-bcv" secondAttribute="bottom" constant="16" id="kgV-AE-gef"/>
-                    <constraint firstAttribute="bottom" secondItem="2YT-rA-PiJ" secondAttribute="bottom" constant="18" id="uGD-oJ-yxU"/>
+                    <constraint firstAttribute="trailing" secondItem="eBs-Ug-7Dp" secondAttribute="trailing" constant="16" id="7Pd-ZL-CBO"/>
+                    <constraint firstItem="eBs-Ug-7Dp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="QvN-Yf-EWI"/>
+                    <constraint firstAttribute="bottom" secondItem="eBs-Ug-7Dp" secondAttribute="bottom" constant="9" id="UxG-Ei-c14"/>
+                    <constraint firstItem="eBs-Ug-7Dp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="cEq-tL-IR1"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="labelAfiliation" destination="9jt-Kv-sVp" id="GVW-l9-6iA"/>
+                <outlet property="labelAfiliationDesc" destination="DlU-Tc-PzO" id="ydh-fj-7LJ"/>
                 <outlet property="labelDescription" destination="2YT-rA-PiJ" id="jih-cf-dGS"/>
+                <outlet property="labelGender" destination="Qxp-3X-nRq" id="0GB-Tp-h64"/>
+                <outlet property="labelGenderDesc" destination="o4F-pD-Nin" id="uk9-Dr-JWV"/>
                 <outlet property="labelTitle" destination="Hwr-5N-bcv" id="Ozx-Ym-l1H"/>
+                <outlet property="stackCards" destination="70j-1O-2Bh" id="MLf-1r-kPE"/>
+                <outlet property="viewCard1" destination="bgz-nn-emj" id="DMU-Ef-5qN"/>
+                <outlet property="viewCard2" destination="Uvo-Xe-tvZ" id="JWe-g4-6WX"/>
             </connections>
-            <point key="canvasLocation" x="238.93129770992365" y="18.30985915492958"/>
+            <point key="canvasLocation" x="240" y="48"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="separatorColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

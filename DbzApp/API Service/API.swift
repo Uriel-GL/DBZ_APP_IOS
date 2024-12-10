@@ -15,6 +15,7 @@ enum API {
     case getAllCharacters(numPage: Int = 1, completion: (Result<BaseResponse<[CharacterDBZ]>, Error>) -> Void)
     case getAllPlanets(numPage: Int = 1, completion: (Result<BaseResponse<[Planet]>, Error>) -> Void)
     case getPlanet(id: Int, completion: (Result<Planet, Error>) -> Void)
+    case getCharacter(id: Int, completion: (Result<CharacterDBZ, Error>) -> Void)
     
     // Esta variable nos ppermitira modificar los endpoints de una manera mas dinamica
     private var url: String {
@@ -25,13 +26,15 @@ enum API {
             return "\(API.baseUrl)/planets?page=\(numPage)&limit=10"
         case .getPlanet(let id, _):
             return "\(API.baseUrl)/planets/\(id)"
+        case .getCharacter(let id, _):
+            return "\(API.baseUrl)/characters/\(id)"
         }
     }
     
     // Esta varibale mos permitira obtener el tipo de HTTPMethod dinamico dependiendo del EndPoint a utilizar
     private var method: HTTPMethod {
         switch self {
-        case .getAllCharacters, .getAllPlanets, .getPlanet:
+        case .getAllCharacters, .getAllPlanets, .getPlanet, .getCharacter:
             return .get
         }
     }
@@ -54,6 +57,9 @@ enum API {
                     case .getPlanet(_, let completion):
                         let response = try JSONDecoder().decode(Planet.self, from: data)
                         completion(.success(response))
+                    case .getCharacter(_, let completion):
+                        let response = try JSONDecoder().decode(CharacterDBZ.self, from: data)
+                        completion(.success(response))
                     }
                 } catch {
                     debugPrint("Ocurrio un error \(error)")
@@ -63,6 +69,8 @@ enum API {
                     case .getAllPlanets(_, let completion):
                         completion(.failure(error))
                     case .getPlanet(_, let completion):
+                        completion(.failure(error))
+                    case .getCharacter(_, let completion):
                         completion(.failure(error))
                     }
                 }

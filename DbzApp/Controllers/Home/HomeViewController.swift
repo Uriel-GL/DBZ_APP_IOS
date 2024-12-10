@@ -105,13 +105,29 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case (1, _):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as! CharacterCollectionViewCell
             let character = self.characters[indexPath.row]
-            cell.configure(with: character)
+            cell.configure(item: character)
             return cell
         default:
             return UICollectionViewCell()
         }
-        
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            starLoader()
+            let idCharacter = self.characters[indexPath.row].id
+            API.getCharacter(id: idCharacter) { [weak self] response in
+                self?.stopLoader()
+                switch response {
+                case .success(let data):
+                    debugPrint("Personaje: \(data.name)")
+                    debugPrint("Personaje: \(data.transformations?.count ?? 0)")
+                    self?.navigationController?.pushViewController(DetailCharacterViewController(character: data), animated: true)
+                case .failure(let error):
+                    debugPrint("Error al obtener la info \(error)")
+                }
+            }.excecute()
+        }
     }
 }
 

@@ -26,14 +26,24 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         self.labelName.font = UIFont(name: "Oswald", size: 22)
     }
     
-    //Metodo que nos ayudara a configurar la celda y sus componentes.
-    func configure(with character: CharacterDBZ) {
-        self.character = character
+    //Metodo que nos ayudara a configurar la celda si es un personaje oh una trasnformación.
+    func configure<T>(item: T?) {
+        self.imageCharacter.image = nil
         
-        self.labelName.text = character.name
+        if let character = item as? CharacterDBZ {
+            self.labelName.text = character.name
+            guard let url = URL(string: character.image) else { return }
+            loadImage(url: url)
+        }
         
-        guard let url = URL(string: character.image) else { return }
-        
+        if let transformation = item as? Transformation {
+            self.labelName.text = transformation.name
+            guard let url = URL(string: transformation.image) else { return }
+            loadImage(url: url)
+        }
+    }
+    
+    func loadImage(url: URL) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 debugPrint("Error al obtener la imagen \(error)")

@@ -73,7 +73,11 @@ extension DetailPlanetViewController: UITableViewDelegate, UITableViewDataSource
             return infoCell
         case 2:
             let characterCell = tableView.dequeueReusableCell(withIdentifier: CharacterPlanetTableViewCell.identifier, for: indexPath) as! CharacterPlanetTableViewCell
-            characterCell.configure(numCharacters: self.planet?.characters?.count ?? 0, characters: self.planet?.characters ?? [])
+            characterCell.configure(
+                numCharacters: self.planet?.characters?.count ?? 0,
+                item: self.planet?.characters ?? [],
+                isDetailCharacter: false
+            )
             return characterCell
         default:
             return UITableViewCell()
