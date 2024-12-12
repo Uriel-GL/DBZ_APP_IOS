@@ -17,8 +17,8 @@ class MainTabBarViewController: UITabBarController {
         let planetasVC = UINavigationController(rootViewController: PlanetasViewController())
         
         //Configuración del tabBar en cada controlador
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house")?.withTintColor(UIColor.systemBackground), tag: 0)
-        planetasVC.tabBarItem = UITabBarItem(title: "Planetas", image: UIImage(systemName: "gear")?.withTintColor(UIColor.systemBackground), tag: 1)
+        homeVC.tabBarItem = UITabBarItem(title: "Personajes", image: UIImage(systemName: "house")?.withTintColor(UIColor.systemBackground), tag: 0)
+        planetasVC.tabBarItem = UITabBarItem(title: "Planetas", image: UIImage(systemName: "globe.americas")?.withTintColor(UIColor.systemBackground), tag: 1)
         
         //Asigancion de los controladores al tabBar
         self.viewControllers = [
