@@ -25,7 +25,7 @@ class PaginationTableViewCell: UITableViewCell {
     @IBOutlet weak var buttonNext: UIButton!
     
     var meta: Meta? = nil
-    var currentPage = 1
+    var currentPage = 0
     var currentCharacters = 0
     var lastCount = 0
     var isButtonBackPressed = false
@@ -75,13 +75,17 @@ class PaginationTableViewCell: UITableViewCell {
     // Función la cual nos ayudara a configurar el label y los botones iniciales con la data de la Api
     func configure(with meta: Meta) {
         self.meta = meta
-        self.currentPage = meta.currentPage
         
         self.labelNumPage.text = "Pagina \(self.currentPage) de \(meta.totalPages)"
-        if self.isButtonBackPressed {
+        
+        if self.isButtonBackPressed == true && self.currentPage > meta.currentPage {
+            self.currentPage = meta.currentPage
             self.currentCharacters -= self.lastCount
             self.labelNumCharacters.text = "Planetas \(self.currentCharacters) de \(meta.totalItems)"
-        } else {
+        }
+        
+        if self.currentPage != meta.currentPage {
+            self.currentPage = meta.currentPage
             self.currentCharacters += meta.itemCount
             self.labelNumCharacters.text = "Planetas \(self.currentCharacters) de \(meta.totalItems)"
         }
