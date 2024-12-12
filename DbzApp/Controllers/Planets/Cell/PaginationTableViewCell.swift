@@ -76,8 +76,6 @@ class PaginationTableViewCell: UITableViewCell {
     func configure(with meta: Meta) {
         self.meta = meta
         
-        self.labelNumPage.text = "Pagina \(self.currentPage) de \(meta.totalPages)"
-        
         if self.isButtonBackPressed == true && self.currentPage > meta.currentPage {
             self.currentPage = meta.currentPage
             self.currentCharacters -= self.lastCount
@@ -89,6 +87,8 @@ class PaginationTableViewCell: UITableViewCell {
             self.currentCharacters += meta.itemCount
             self.labelNumCharacters.text = "Planetas \(self.currentCharacters) de \(meta.totalItems)"
         }
+        
+        self.labelNumPage.text = "Pagina \(self.currentPage) de \(meta.totalPages)"
         
         self.buttonBack.isEnabled = !(currentPage == 1)
         self.buttonNext.isEnabled = !(currentPage == meta.totalPages)

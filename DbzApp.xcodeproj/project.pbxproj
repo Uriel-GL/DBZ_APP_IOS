@@ -11,6 +11,7 @@
 		6A05DA782D07BD050030CB0A /* DetailCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05DA752D07BD050030CB0A /* DetailCharacterViewController.swift */; };
 		6A05DA7B2D07BDBC0030CB0A /* CardInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A05DA7A2D07BDBC0030CB0A /* CardInfoTableViewCell.xib */; };
 		6A05DA7C2D07BDBC0030CB0A /* CardInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05DA792D07BDBC0030CB0A /* CardInfoTableViewCell.swift */; };
+		6A076BB72D0BACEC00762E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF7E612CC04D9B00EB7BCB /* LaunchScreen.storyboard */; };
 		6A12C98D2CC0812200CFBE77 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A12C98C2CC0812200CFBE77 /* BaseViewController.swift */; };
 		6A12C9922CC0848800CFBE77 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A12C9902CC0848800CFBE77 /* CharacterCollectionViewCell.swift */; };
 		6A12C9932CC0848800CFBE77 /* CharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A12C9912CC0848800CFBE77 /* CharacterCollectionViewCell.xib */; };
@@ -431,6 +432,7 @@
 				6A49E6312CD3F1AD009E6540 /* PlanetTableViewCell.xib in Resources */,
 				6A05DA7B2D07BDBC0030CB0A /* CardInfoTableViewCell.xib in Resources */,
 				6A8F7C0D2D0212E300B0A9EB /* CardPlanetTableViewCell.xib in Resources */,
+				6A076BB72D0BACEC00762E5A /* LaunchScreen.storyboard in Resources */,
 				6A24D87F2CD02FE3002BEA11 /* PlanetasViewController.xib in Resources */,
 				6A8F7C092D0210E700B0A9EB /* DetailPlanetViewController.xib in Resources */,
 			);
