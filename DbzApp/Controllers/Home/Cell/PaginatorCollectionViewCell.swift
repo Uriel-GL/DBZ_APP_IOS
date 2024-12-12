@@ -24,7 +24,7 @@ class PaginatorCollectionViewCell: UICollectionViewCell {
     
     var delegate: PaginatorCollectionViewCellDelegate? = nil
     var meta: Meta? = nil
-    var currentPage = 1
+    var currentPage = 0
     var currentCharacters = 0
     var lastCount = 0
     var isButtonBackPressed = false
@@ -41,18 +41,23 @@ class PaginatorCollectionViewCell: UICollectionViewCell {
     
     func configure(with meta: Meta) {
         self.meta = meta
-        self.currentPage = meta.currentPage
+        
         
         self.labelNumCharacters.font = UIFont(name: "Oswald", size: 18)
-        if self.isButtonBackPressed {
+        self.labelNumPages.font = UIFont(name: "Oswald", size: 14)
+        
+        if self.isButtonBackPressed == true && self.currentPage > meta.currentPage {
+            self.currentPage = meta.currentPage
             self.currentCharacters -= self.lastCount
             self.labelNumCharacters.text = "Personajes \(self.currentCharacters) de \(meta.totalItems)"
-        } else {
+        }
+        
+        if self.meta?.currentPage != self.currentPage {
+            self.currentPage = meta.currentPage
             self.currentCharacters += meta.itemCount
             self.labelNumCharacters.text = "Personajes \(self.currentCharacters) de \(meta.totalItems)"
         }
         
-        self.labelNumPages.font = UIFont(name: "Oswald", size: 14)
         self.labelNumPages.text = "Pagina \(meta.currentPage) de \(meta.totalPages)"
         
         self.buttonBack.isEnabled = !(currentPage == 1)
