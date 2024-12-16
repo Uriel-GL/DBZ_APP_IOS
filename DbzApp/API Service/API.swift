@@ -40,12 +40,10 @@ enum API {
     }
     
     func excecute() {
-//        debugPrint("host: \(self.url) - Metodo: \(self.method)")
         AF.request(self.url, method: self.method).validate().responseData { (dataResponse) in
             switch dataResponse.result {
             case .success(_):
                 guard let data = dataResponse.value  else { return }
-//                debugPrint(String(data: data, encoding: .utf8) ?? "-")
                 do {
                     switch self {
                     case .getAllCharacters(_, let completion):
@@ -63,20 +61,56 @@ enum API {
                     }
                 } catch {
                     debugPrint("Ocurrio un error \(error)")
-                    switch self {
-                    case .getAllCharacters(_, let completion):
-                        completion(.failure(error))
-                    case .getAllPlanets(_, let completion):
-                        completion(.failure(error))
-                    case .getPlanet(_, let completion):
-                        completion(.failure(error))
-                    case .getCharacter(_, let completion):
-                        completion(.failure(error))
-                    }
+                    handleCompletionWithError(error: error)
                 }
             case .failure(let error):
                 debugPrint("API ERROR: \(error)")
+                handleRequestWithError(error: error)
             }
         }
+    }
+    
+    func handleCompletionWithError(error: Error) {
+        switch self {
+        case .getAllCharacters(_, let completion):
+            completion(.failure(error))
+        case .getAllPlanets(_, let completion):
+            completion(.failure(error))
+        case .getPlanet(_, let completion):
+            completion(.failure(error))
+        case .getCharacter(_, let completion):
+            completion(.failure(error))
+        }
+    }
+    
+    func handleRequestWithError(error: Error) {
+        debugPrint("Api error: \(error)")
+        
+        if let errorDesc = error.asAFError?.underlyingError as? NSError {
+            switch errorDesc.code {
+            case NSURLErrorNotConnectedToInternet:
+                showAlert(message: "No estás conectado a internet. Por favor, revisa la configuración de tu red.")
+            case NSURLErrorTimedOut:
+                showAlert(message: "El tiempo de espera para la solicitud se agotó. Inténtalo de nuevo.")
+            default:
+                debugPrint("Error aun no manejado: \(errorDesc.code)")
+            }
+        } else {
+            handleCompletionWithError(error: error)
+        }
+    }
+    
+    private func showAlert(message: String) {
+        guard let topController = getTopViewController() else { return }
+        let alert = UIAlertController(title: "Sin Conexión", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continuar", style: .default))
+        topController.present(alert, animated: true, completion: nil)
+    }
+    
+    private func getTopViewController() -> UIViewController? {
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            return scene.windows.first(where: { $0.isKeyWindow })?.rootViewController
+        }
+        return nil
     }
 }

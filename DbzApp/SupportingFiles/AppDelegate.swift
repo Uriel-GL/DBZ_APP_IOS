@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController2
         window?.makeKeyAndVisible()
         
+        //Monitoreo de red
+        _ = NetworkMonitor.shared
+        
         return true
     }
 
